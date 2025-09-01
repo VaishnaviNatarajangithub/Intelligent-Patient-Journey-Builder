@@ -1,43 +1,55 @@
-import express from 'express'
-import cors from 'cors'
-import 'dotenv/config'
-import connectDB from './config/mongodb.js'
+import express from 'express';
+import cors from 'cors';
+import 'dotenv/config';
+import connectDB from './config/mongodb.js';
 import chatbotRoutes from "./routes/chatbotRoutes.js";
 import summarizeRoutes from "./routes/SummarizeRoutes.js";
 import reportRoutes from "./routes/ReportRoutes.js";
 import uploadRoute from "./routes/Upload.js";
 import multimodalRoute from "./routes/multimodal.js";
-import userRoutes from "./routes/userRoute.js"; 
+import userRoutes from "./routes/userRoute.js";
 
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const app = express()
-const port = process.env.PORT || 4000
-connectDB()
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-//middlewares
-app.use(express.json())
-//app.use(cors())
-// ✅ Enable CORS for frontend
+const app = express();
+const port = process.env.PORT || 4000;
+
+// Connect to MongoDB
+connectDB();
+
+// Middlewares
+app.use(express.json());
 app.use(cors({
-  origin: "http://localhost:5173", // your frontend URL
+  origin: "http://localhost:5173", // your frontend dev URL
   methods: ["GET", "POST"],
 }));
 
-
-//api endpoints
+// API Routes
 app.use("/api/users", userRoutes);
-// Chatbot API
 app.use("/api/chatbot", chatbotRoutes);
 app.use("/api/patients", summarizeRoutes);
 app.use("/api/reports", reportRoutes);
-//app.use("/api", uploadRoute);
-//app.use("/api", audioRoute);
+// app.use("/api", uploadRoute);
+// app.use("/api", audioRoute);
 app.use("/api", multimodalRoute);
 
-app.get('/',(req,res)=>{
-    res.send('API Working')
-})
+// Health check
+app.get('/', (req, res) => {
+    res.send('API Working');
+});
 
-app.listen(port,()=>{
-    console.log("Server Started",port)
-})
+// Serve React frontend (for production)
+app.use(express.static(path.join(__dirname, "../frontend/build")));
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/build", "index.html"));
+});
+
+// Start server
+app.listen(port, () => {
+    console.log(`Server started on port ${port}`);
+});
