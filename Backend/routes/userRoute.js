@@ -107,13 +107,13 @@ router.get("/dashboard/patients/:id/stats", async (req, res) => {
     const healthScore = Math.max(0, 100 - appointmentsCount * 2 - reportsCount);
 
     // Notifications (make sure Notification model exists)
-    const notifications = await Notification.countDocuments({ patientId, read: false });
+    //const notifications = await Notification.countDocuments({ patientId, read: false });
 
     res.json({
       appointments: appointmentsCount,
       reports: reportsCount,
       healthScore,
-      notifications,
+      //notifications,
     });
   } catch (err) {
     console.error("Error fetching patient stats:", err);
