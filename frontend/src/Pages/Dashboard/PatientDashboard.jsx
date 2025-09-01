@@ -60,7 +60,7 @@ const PatientDashboard = () => {
         if (!userId) return console.error("No patientId found in localStorage");
 
         // Profile
-        const profileRes = await axios.get(`http://localhost:4000/api/users/patients/${userId}`, { headers: { Authorization: `Bearer ${token}` } });
+        const profileRes = await axios.get(`https://intelligent-patient-journey-builder-6.onrender.com/api/users/patients/${userId}`, { headers: { Authorization: `Bearer ${token}` } });
         setProfile(profileRes.data);
         setForm({
           age: profileRes.data.age || "",
@@ -75,11 +75,11 @@ const PatientDashboard = () => {
         setStats(statsRes.data);
 
         // Appointments
-        const apptRes = await axios.get(`http://localhost:4000/api/patients/${userId}/appointments`, { headers: { Authorization: `Bearer ${token}` } });
+        const apptRes = await axios.get(`https://intelligent-patient-journey-builder-6.onrender.com/api/patients/${userId}/appointments`, { headers: { Authorization: `Bearer ${token}` } });
         setAppointments(apptRes.data);
 
         // Reports
-        const reportsRes = await axios.get(`http://localhost:4000/api/patients/${userId}/reports`, { headers: { Authorization: `Bearer ${token}` } });
+        const reportsRes = await axios.get(`https://intelligent-patient-journey-builder-6.onrender.com/api/patients/${userId}/reports`, { headers: { Authorization: `Bearer ${token}` } });
         setReports(reportsRes.data);
 
       } catch (err) {
@@ -99,7 +99,7 @@ const PatientDashboard = () => {
       const userId = localStorage.getItem("patientId");
       if (!userId) return alert("User not logged in");
 
-      await axios.put(`http://localhost:4000/api/users/patients/${userId}`, {
+      await axios.put(`https://intelligent-patient-journey-builder-6.onrender.com/api/users/patients/${userId}`, {
         ...form,
         medicalHistory: form.medicalHistory ? form.medicalHistory.split(",").map(s => s.trim()) : [],
         allergies: form.allergies ? form.allergies.split(",").map(s => s.trim()) : [],
@@ -118,7 +118,7 @@ const PatientDashboard = () => {
     setInput("");
 
     try {
-      const res = await axios.post("http://localhost:4000/api/chatbot", { message: msg });
+      const res = await axios.post("https://intelligent-patient-journey-builder-6.onrender.com/api/chatbot", { message: msg });
       setMessages(prev => [...prev, { from: "bot", text: res.data.reply }]);
     } catch {
       setMessages(prev => [...prev, { from: "bot", text: "Server error. Please try again." }]);
