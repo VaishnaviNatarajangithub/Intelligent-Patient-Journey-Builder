@@ -27,13 +27,12 @@ const Register = () => {
         if (res.data.token) localStorage.setItem("token", res.data.token);
 
 
- // Redirect by role after registration
 switch (role) {
   case "patient":
-    navigate("/patient/dashboard");
+    navigate("/patient/dashboard"); // ✅ match route
     break;
   case "doctor":
-    navigate("/doctor/dashboard");
+    navigate("/doctor/dashboard"); // ✅ match route
     break;
   default:
     navigate("/login"); // fallback
