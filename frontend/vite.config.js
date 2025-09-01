@@ -25,7 +25,7 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/api': 'http://localhost:4000', // Forward all /api requests to backend
+      '/api': 'https://intelligent-patient-journey-builder-6.onrender.com/', // Forward all /api requests to backend
     },
   },
 })
