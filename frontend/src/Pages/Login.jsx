@@ -14,7 +14,7 @@ const Login = () => {
 
     try {
       // 🔹 Send login API request (only email and password)
-      const res = await axios.post("http://localhost:4000/api/users/login", {
+      const res = await axios.post("https://intelligent-patient-journey-builder-6.onrender.com/api/users/login", {
         email,
         password,
       });
