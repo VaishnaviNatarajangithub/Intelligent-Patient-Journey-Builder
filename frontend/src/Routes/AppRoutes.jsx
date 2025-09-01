@@ -1,14 +1,14 @@
 import React from 'react'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import Login from '../pages/Login.jsx'
-import NotFound from '../pages/NotFound.jsx'
-import DoctorDashboard from '../pages/Dashboard/DoctorDashboard.jsx'
-import PatientDashboard from '../pages/Dashboard/PatientDashboard.jsx'
-import UploadData from '../pages/Dashboard/UploadData.jsx'
-import RiskAlerts from '../pages/Dashboard/RiskAlerts.jsx'
-import PatientProfile from '../pages/Dashboard/PatientProfile.jsx'
-import EducationHub from '../pages/EducationHub.jsx'
-import ProtectedRoute from '../components/ProtectedRoute.jsx'
+import Login from '../pages/Login'
+import NotFound from '../pages/NotFound'
+import DoctorDashboard from '../pages/Dashboard/DoctorDashboard'
+import PatientDashboard from '../pages/Dashboard/PatientDashboard'
+import UploadData from '../pages/Dashboard/UploadData'
+import RiskAlerts from '../pages/Dashboard/RiskAlerts'
+import PatientProfile from '../pages/Dashboard/PatientProfile'
+import EducationHub from '../pages/EducationHub'
+import ProtectedRoute from '../components/ProtectedRoute'
 
 export default function AppRoutes() {
   return (
