@@ -30,16 +30,18 @@ const Login = () => {
         localStorage.setItem("token", token);
 
         // Redirect by role
-        switch (userData.role) {
+// Redirect by role
+      switch (userData.role) {
           case "patient":
-            navigate("/PatientDashboard");
-            break;
+              navigate("/patient/dashboard"); 
+              break;
           case "doctor":
-            navigate("/DoctorDashboard");
-            break;
+              navigate("/doctor/dashboard"); 
+              break;
           default:
-            navigate("/");
-        }
+              navigate("/login"); // fallback to login
+}
+
       }
     } catch (err) {
       console.error("Login failed:", err);
