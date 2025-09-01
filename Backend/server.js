@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import connectDB from './config/mongodb.js';
-import chatbotRoutes from "./routes/chatbotRoutes.js";
+import chatbotRoutes from "./routes/ChatbotRoutes.js";
 import summarizeRoutes from "./routes/SummarizeRoutes.js";
 import reportRoutes from "./routes/ReportRoutes.js";
 import uploadRoute from "./routes/Upload.js";
