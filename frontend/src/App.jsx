@@ -3,20 +3,20 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 // Public Pages
-import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
+import Home from "./Pages/Home";
+import Contact from "./Pages/Contact";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 
 // Dashboard Pages
-import DoctorDashboard from "./pages/Dashboard/DoctorDashboard"; 
-import PatientDashboard from "./pages/Dashboard/PatientDashboard";
-import RiskAlerts from "./pages/Dashboard/RiskAlerts";
-import EducationHub from "./pages/Dashboard/EducationHub";
-import Analytics from "./pages/Dashboard/Analytics";
-import PatientJourneyReport from "./pages/Dashboard/PatientJourneyReport";
-import ReportForm from "./pages/Dashboard/ReportForm";
-import UploadData from "./pages/Dashboard/UploadData";
+import DoctorDashboard from "./Pages/Dashboard/DoctorDashboard"; 
+import PatientDashboard from "./Pages/Dashboard/PatientDashboard";
+import RiskAlerts from "./Pages/Dashboard/RiskAlerts";
+import EducationHub from "./Pages/Dashboard/EducationHub";
+import Analytics from "./Pages/Dashboard/Analytics";
+import PatientJourneyReport from "./Pages/Dashboard/PatientJourneyReport";
+import ReportForm from "./Pages/Dashboard/ReportForm";
+import UploadData from "./Pages/Dashboard/UploadData";
 
 // Layout for sidebar
 import Layout from "./components/Layout";
