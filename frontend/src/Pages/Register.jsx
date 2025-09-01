@@ -27,10 +27,17 @@ const Register = () => {
         if (res.data.token) localStorage.setItem("token", res.data.token);
 
 
-      // Navigate based on role
-      if (role === "patient") navigate("PatientDashboard");
-      else if (role === "doctor") navigate("/DoctorDashboard");
-      else navigate("/");
+ // Redirect by role after registration
+switch (role) {
+  case "patient":
+    navigate("/patient/dashboard");
+    break;
+  case "doctor":
+    navigate("/doctor/dashboard");
+    break;
+  default:
+    navigate("/login"); // fallback
+}
     }
   } catch (err) {
     // ✅ Properly handle errors
