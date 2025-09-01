@@ -30,7 +30,7 @@ app.use(cors({
 
 // API Routes
 app.use("/api/users", userRoutes);
-app.use("/api/chatbot", chatbotRoutes);
+app.use("/api/chatbot",chatbotRoutes);
 app.use("/api/patients", summarizeRoutes);
 app.use("/api/reports", reportRoutes);
 // app.use("/api", uploadRoute);
