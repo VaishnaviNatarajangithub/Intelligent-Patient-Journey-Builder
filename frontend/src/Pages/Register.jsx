@@ -14,7 +14,7 @@ const Register = () => {
   console.log("Register Submitted:", { name, email, password, role });
 
   try {
-    const res = await axios.post("http://localhost:4000/api/users/register", {
+    const res = await axios.post("https://intelligent-patient-journey-builder-6.onrender.com/api/users/register", {
       name,
       email,
       password,
