@@ -5,8 +5,7 @@ import connectDB from './config/mongodb.js';
 import chatbotRoutes from "./routes/ChatbotRoutes.js";
 import summarizeRoutes from "./routes/SummarizeRoutes.js";
 import reportRoutes from "./routes/ReportRoutes.js";
-import uploadRoute from "./routes/Upload.js";
-import multimodalRoute from "./routes/multimodal.js";
+import uploadRoute from "./routes/Upload.js";;
 import userRoutes from "./routes/userRoute.js";
 
 import path from 'path';
@@ -34,8 +33,7 @@ app.use("/api/chatbot",chatbotRoutes);
 app.use("/api/patients", summarizeRoutes);
 app.use("/api/reports", reportRoutes);
 // app.use("/api", uploadRoute);
-// app.use("/api", audioRoute);
-app.use("/api", multimodalRoute);
+
 
 // Health check
 app.get('/', (req, res) => {
