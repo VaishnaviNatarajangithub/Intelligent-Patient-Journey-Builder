@@ -8,7 +8,7 @@ const Chatbot = () => {
     setMessages((prev) => [...prev, { from: "user", text: msg }]);
 
     try {
-      const res = await fetch("http://localhost:4000/api/chatbot", {
+      const res = await fetch("https://intelligent-patient-journey-builder-6.onrender.com/api/chatbot", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: msg }),
